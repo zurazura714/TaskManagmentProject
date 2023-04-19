@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Data",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{B9C31A73-458E-46EB-A927-F5D2FE626420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Models", "TaskManagmentProject.Models\TaskManagmentProject.Models.csproj", "{02CE480E-D923-4FAE-8521-A656F61FE36F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Domain", "TaskManagmentProject.Models\TaskManagmentProject.Domain.csproj", "{02CE480E-D923-4FAE-8521-A656F61FE36F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagmentProject.Models.Models
 {
-    public class Task
+    public class TaskDomain
     {
         public int ID { get; set; }
         public string Title { get; set; }
