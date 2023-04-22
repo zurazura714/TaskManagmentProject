@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\TaskManagmentProject.Abstraction\TaskManagmentProject.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Business\TaskManagmentProject.Domain\TaskManagmentProject.Domain.csproj" />
   </ItemGroup>
 
 </Project>

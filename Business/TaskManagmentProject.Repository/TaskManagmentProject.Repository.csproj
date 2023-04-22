@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TaskManagmentProject.Common\TaskManagmentProject.Abstraction\TaskManagmentProject.Abstraction.csproj" />
-    <ProjectReference Include="..\..\TaskManagmentProject\Data\TaskManagmentProject.Data\TaskManagmentProject.Data.csproj" />
+    <ProjectReference Include="..\..\Common\TaskManagmentProject.Abstraction\TaskManagmentProject.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Data\TaskManagmentProject.Data\TaskManagmentProject.Data.csproj" />
   </ItemGroup>
 
 </Project>
