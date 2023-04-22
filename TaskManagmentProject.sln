@@ -15,13 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{42F456
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagmentProject.Domain", "Business\TaskManagmentProject.Domain\TaskManagmentProject.Domain.csproj", "{6D94E1EE-114C-4AE3-B75D-4F4FE435F897}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Common", "Common\TaskManagmentProject.Common\TaskManagmentProject.Common.csproj", "{52A86539-1F1C-4D89-87FB-9B4A28F846A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagmentProject.Common", "Common\TaskManagmentProject.Common\TaskManagmentProject.Common.csproj", "{52A86539-1F1C-4D89-87FB-9B4A28F846A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Abstraction", "Common\TaskManagmentProject.Abstraction\TaskManagmentProject.Abstraction.csproj", "{63D1EF65-9A1E-4B65-BD12-9D045975FD0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagmentProject.Abstraction", "Common\TaskManagmentProject.Abstraction\TaskManagmentProject.Abstraction.csproj", "{63D1EF65-9A1E-4B65-BD12-9D045975FD0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Repository", "Business\TaskManagmentProject.Repository\TaskManagmentProject.Repository.csproj", "{288E9790-F27F-423B-A10E-D7C435214A20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagmentProject.Repository", "Business\TaskManagmentProject.Repository\TaskManagmentProject.Repository.csproj", "{288E9790-F27F-423B-A10E-D7C435214A20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Service", "Business\TaskManagmentProject.Service\TaskManagmentProject.Service.csproj", "{21EA65B8-0865-4506-80F1-3B721C20725C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagmentProject.Service", "Business\TaskManagmentProject.Service\TaskManagmentProject.Service.csproj", "{6B7BA893-6FFF-44E3-A0AC-6455AE9C56D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{288E9790-F27F-423B-A10E-D7C435214A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{288E9790-F27F-423B-A10E-D7C435214A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{288E9790-F27F-423B-A10E-D7C435214A20}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21EA65B8-0865-4506-80F1-3B721C20725C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21EA65B8-0865-4506-80F1-3B721C20725C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21EA65B8-0865-4506-80F1-3B721C20725C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21EA65B8-0865-4506-80F1-3B721C20725C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7BA893-6FFF-44E3-A0AC-6455AE9C56D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7BA893-6FFF-44E3-A0AC-6455AE9C56D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7BA893-6FFF-44E3-A0AC-6455AE9C56D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7BA893-6FFF-44E3-A0AC-6455AE9C56D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,7 +67,7 @@ Global
 		{52A86539-1F1C-4D89-87FB-9B4A28F846A2} = {42F45633-C110-47D7-8D7F-34677ADE82C3}
 		{63D1EF65-9A1E-4B65-BD12-9D045975FD0C} = {42F45633-C110-47D7-8D7F-34677ADE82C3}
 		{288E9790-F27F-423B-A10E-D7C435214A20} = {B9C31A73-458E-46EB-A927-F5D2FE626420}
-		{21EA65B8-0865-4506-80F1-3B721C20725C} = {B9C31A73-458E-46EB-A927-F5D2FE626420}
+		{6B7BA893-6FFF-44E3-A0AC-6455AE9C56D6} = {B9C31A73-458E-46EB-A927-F5D2FE626420}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A5303E9-4184-4F4F-9BB7-FDEE110D4A6A}
