@@ -1,3 +1,13 @@
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using TaskManagmentProject.Abstraction.IRepositories;
+using TaskManagmentProject.Abstraction.IServices;
+using TaskManagmentProject.Data.DataInit;
+using TaskManagmentProject.Data.DBContext;
+using TaskManagmentProject.Repository.Repositories;
+using TaskManagmentProject.Service.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +16,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<TaskDBContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("TaskDBContext")));
+
+AddRepositoriesAndServices(builder.Services);
 
 var app = builder.Build();
 
@@ -16,6 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+UpdateDatabase(app);
 
 app.UseHttpsRedirection();
 
@@ -25,3 +41,27 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+static void UpdateDatabase(IApplicationBuilder app)
+{
+    using (var serviceScope = app.ApplicationServices
+        .GetRequiredService<IServiceScopeFactory>()
+        .CreateScope())
+    {
+        var context = serviceScope.ServiceProvider.GetService<TaskDBContext>();
+        context.Database.Migrate();
+    }
+    DataInit.AddData(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
+}
+static void AddRepositoriesAndServices(IServiceCollection services)
+{
+    services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+    services.AddScoped<IUnitOfWork, TaskDBContext>();
+
+    services.AddScoped<ITaskRepository, TaskRepository>();
+    services.AddScoped<IUserRepository, UserRepository>();
+
+    services.AddScoped<ITaskService, TaskService>();
+    services.AddScoped<IUserService, UserService>();
+}

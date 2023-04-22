@@ -8,6 +8,12 @@ namespace TaskManagmentProject.WebApi.Controllers
     [Authorize]
     public class TaskManagmentController
     {
+        [HttpGet(Name = "GetWeatherForecast"), Authorize]
+        public IEnumerable<AppDomain> Get()
+        {
+            return null;
+        }
+
 
     }
 }

@@ -7,9 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TaskManagmentProject.Business\TaskManagmentProject.Repository\TaskManagmentProject.Repository.csproj" />
+    <ProjectReference Include="..\..\TaskManagmentProject.Business\TaskManagmentProject.Service\TaskManagmentProject.Service.csproj" />
+    <ProjectReference Include="..\Data\TaskManagmentProject.Data\TaskManagmentProject.Data.csproj" />
   </ItemGroup>
 
 </Project>
