@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\TaskManagmentProject.Abstraction\TaskManagmentProject.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Common\TaskManagmentProject.Common\TaskManagmentProject.Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TaskDBContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("TaskDBContext")));
 
+AddAuth(builder.Services);
 AddRepositoriesAndServices(builder.Services);
 
 var app = builder.Build();
@@ -30,13 +32,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-UpdateDatabase(app);
 
-app.UseHttpsRedirection();
+UpdateDatabase(app);
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
@@ -51,6 +53,29 @@ static void UpdateDatabase(IApplicationBuilder app)
         context.Database.Migrate();
     }
 }
+
+static void AddAuth(IServiceCollection services)
+{
+    services.AddAuthentication(
+    CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+    options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+    });
+
+    // authentication 
+    services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    });
+
+    services.AddTransient(
+        m => new UserManager());
+
+}
+
 static void AddRepositoriesAndServices(IServiceCollection services)
 {
     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -59,7 +84,9 @@ static void AddRepositoriesAndServices(IServiceCollection services)
 
     services.AddScoped<ITaskRepository, TaskRepository>();
     services.AddScoped<IUserRepository, UserRepository>();
+    services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
     services.AddScoped<ITaskService, TaskService>();
     services.AddScoped<IUserService, UserService>();
+    services.AddScoped<IUserRoleService, UserRoleService>();
 }

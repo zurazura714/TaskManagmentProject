@@ -32,14 +32,14 @@ namespace TaskManagmentProject.Data.DBContext
                 {
                     Id = 1,
                     UserName = "User1",
-                    Password = Cryptography.HmacSHA256("User", "User1"),
+                    Password = Cryptography.HmacSHA256("User1", "User1"),
                     IsAdmin = true
                 },
                 new AppUser()
                 {
                     Id = 2,
                     UserName = "User2",
-                    Password = Cryptography.HmacSHA256("User", "User2"),
+                    Password = Cryptography.HmacSHA256("User2", "User2"),
                     IsAdmin = false
                 });
             modelBuilder.Entity<UserRole>().HasData(
