@@ -50,7 +50,6 @@ static void UpdateDatabase(IApplicationBuilder app)
         var context = serviceScope.ServiceProvider.GetService<TaskDBContext>();
         context.Database.Migrate();
     }
-    //DataInit.AddData(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
 }
 static void AddRepositoriesAndServices(IServiceCollection services)
 {

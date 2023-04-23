@@ -7,7 +7,7 @@ namespace TaskManagmentProject.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         public string Password { get; set; }
@@ -17,6 +17,6 @@ namespace TaskManagmentProject.Domain.Models
         public ICollection<TaskDomain> CreatedTasks { get; set; }
 
         [Required]
-        public UserRole Role { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }
