@@ -19,7 +19,7 @@ namespace TaskManagmentProject.WebApi.Controllers
         private readonly IUserService _userService;
         private readonly IUserRoleService _userRoleService;
         private readonly IMapper _mapper;
-        UserManager _userManager;
+        private UserManager _userManager;
 
 
         public AuthController(IUserService userService, IMapper mapper,
@@ -37,7 +37,7 @@ namespace TaskManagmentProject.WebApi.Controllers
         public IActionResult Login(LoginDTO model)
         {
             if (User.Identity != null && User.Identity.IsAuthenticated)
-                return Ok("You are already Authorized!");
+                return BadRequest("You are already Authorized!");
 
             var user = _userService.GetUser(model);
 

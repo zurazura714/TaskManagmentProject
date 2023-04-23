@@ -70,9 +70,7 @@ static void AddAuth(IServiceCollection services)
     {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     });
-
-    services.AddTransient(
-        m => new UserManager());
+    services.AddTransient(m => new UserManager());
 
 }
 
