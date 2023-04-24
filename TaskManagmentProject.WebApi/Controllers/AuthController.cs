@@ -47,15 +47,20 @@ namespace TaskManagmentProject.WebApi.Controllers
                 _userManager.SignIn(this.HttpContext, user, userRoles);
                 return Ok();
             }
-            return Unauthorized();
+            return Unauthorized("No User was Found");
         }
 
         [HttpPost]
         [Route("LogOut")]
         public IActionResult LogOuts()
         {
-            _userManager.SignOut(this.HttpContext);
-            return Ok();
+
+            if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                _userManager.SignOut(this.HttpContext);
+                return Ok();
+            }
+            return BadRequest("Already Signed Out!");
         }
     }
 }

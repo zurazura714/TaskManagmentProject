@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -56,20 +57,31 @@ static void UpdateDatabase(IApplicationBuilder app)
 
 static void AddAuth(IServiceCollection services)
 {
-    services.AddAuthentication(
-    CookieAuthenticationDefaults.AuthenticationScheme)
-        .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
-    options =>
-    {
-        options.LoginPath = "/Account/Login";
-        options.LogoutPath = "/Account/Logout";
-    });
+    //services.AddAuthentication(
+    //CookieAuthenticationDefaults.AuthenticationScheme)
+    //    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+    //options =>
+    //{
+    //    options.LoginPath = "/Account/Login";
+    //    options.LogoutPath = "/Account/Logout";
+    //});
 
-    // authentication 
-    services.AddAuthentication(options =>
-    {
-        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    });
+    //// authentication 
+    //services.AddAuthentication(options =>
+    //{
+    //    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    //});
+
+    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options =>
+        {
+            options.Events.OnRedirectToLogin = context =>
+            {
+                context.Response.StatusCode = 401;
+                return Task.CompletedTask;
+            };
+        });
+
     services.AddTransient(m => new UserManager());
 
 }
