@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TaskManagmentProject.Common.DTOS
 {
-    public class TaskDto
+    public class TaskUpdateDto
     {
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Title is required.")]
         public string Title { get; set; }

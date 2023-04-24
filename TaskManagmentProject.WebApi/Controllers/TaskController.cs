@@ -55,13 +55,13 @@ namespace TaskManagmentProject.WebApi.Controllers
             task.CreatedAt = DateTime.Now;
             _taskRepository.Save(task);
 
-            var createdTaskViewModel = _mapper.Map<TaskDto>(task);
+            var createdTaskViewModel = _mapper.Map<TaskUpdateDto>(task);
             return CreatedAtAction(nameof(GetById), new { id = createdTaskViewModel.Id }, createdTaskViewModel);
         }
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Update")]
-        public IActionResult Put(int id, TaskDto taskViewModel)
+        public IActionResult Put(int id, TaskUpdateDto taskViewModel)
         {
             if (id != taskViewModel.Id)
             {
