@@ -3,11 +3,21 @@ using System.Runtime.InteropServices;
 using TaskManagmentProject.Common.DTOS;
 using TaskManagmentProject.Domain.Models;
 
-public class UserProfile : Profile
+public class TaskProfile : Profile
 {
-    public UserProfile()
+    public TaskProfile()
     {
-        CreateMap<TaskDomain, TaskDto>().ReverseMap();
+        CreateMap<TaskDomain, TaskDomainCreateDto>().ReverseMap()
+            .ForMember(
+                dest => dest.AttachedFiles,
+                opt => opt.MapFrom(src => src.AttachedFiles)); ;
         CreateMap<TaskDomain, TaskUpdateDto>().ReverseMap();
+    }
+}
+public class TaskFileProfile : Profile
+{
+    public TaskFileProfile()
+    {
+        CreateMap<TaskFile, TaskFileCreateDto>().ReverseMap();
     }
 }

@@ -12,15 +12,10 @@ namespace TaskManagmentProject.Common.DTOS
         [StringLength(500, ErrorMessage = "Brief description cannot be longer than 500 characters.")]
         public string BriefDescription { get; set; }
 
-        public string Description { get; set; }
-
         [Required]
         public int AssignedUserId { get; set; }
 
-        public int CreatedById { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public List<TaskFileDto> AttachedFiles { get; set; }
+        public string Description { get; set; }
+        public List<TaskFileCreateDto> AttachedFiles { get; set; }
     }
 }

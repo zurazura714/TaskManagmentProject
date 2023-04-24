@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagmentProject.Common.DTOS
 {
-    public class TaskDto
+    public class TaskDomainCreateDto
     {
 
         [Required(ErrorMessage = "Title is required.")]
@@ -21,10 +21,6 @@ namespace TaskManagmentProject.Common.DTOS
         [Required]
         public int AssignedUserId { get; set; }
 
-        public int CreatedById { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public List<TaskFileDto> AttachedFiles { get; set; }
+        public List<TaskFileCreateDto> AttachedFiles { get; set; }
     }
 }

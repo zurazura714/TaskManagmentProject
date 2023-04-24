@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -93,10 +92,12 @@ static void AddRepositoriesAndServices(IServiceCollection services)
     services.AddScoped<IUnitOfWork, TaskDBContext>();
 
     services.AddScoped<ITaskRepository, TaskRepository>();
+    services.AddScoped<ITaskFileRepository, TaskFileRepository>();
     services.AddScoped<IUserRepository, UserRepository>();
     services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
     services.AddScoped<ITaskService, TaskService>();
+    services.AddScoped<ITaskFileService, TaskFileService>();
     services.AddScoped<IUserService, UserService>();
     services.AddScoped<IUserRoleService, UserRoleService>();
 }
