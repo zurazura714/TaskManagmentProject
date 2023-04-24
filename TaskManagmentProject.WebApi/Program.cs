@@ -35,6 +35,7 @@ if (app.Environment.IsDevelopment())
 
 UpdateDatabase(app);
 
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -75,6 +76,11 @@ static void AddAuth(IServiceCollection services)
         .AddCookie(options =>
         {
             options.Events.OnRedirectToLogin = context =>
+            {
+                context.Response.StatusCode = 401;
+                return Task.CompletedTask;
+            };
+            options.Events.OnRedirectToAccessDenied = context =>
             {
                 context.Response.StatusCode = 401;
                 return Task.CompletedTask;
