@@ -27,6 +27,7 @@ namespace TaskManagmentProject.Repository.Repositories
             return _context.Set<TEntity>().Find(id);
         }
 
+
         public virtual IEnumerable<TEntity> Set()
         {
             return _context.Set<TEntity>();
